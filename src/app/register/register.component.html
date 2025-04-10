@@ -1,0 +1,61 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4 text-primary">Đăng ký khách hàng</h2>
+  
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="row g-3 needs-validation" novalidate>
+  
+      <div class="col-md-6">
+        <label for="username" class="form-label">Tên đăng nhập</label>
+        <input type="text" id="username" name="username" class="form-control" [(ngModel)]="customer.username" required />
+      </div>
+  
+      <div class="col-md-6">
+        <label for="password" class="form-label">Mật khẩu</label>
+        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="customer.password" required />
+      </div>
+  
+      <div class="col-md-6">
+        <label for="firstName" class="form-label">Họ</label>
+        <input type="text" id="firstName" name="firstName" class="form-control" [(ngModel)]="customer.full_name.first_name" required />
+      </div>
+  
+      <div class="col-md-6">
+        <label for="lastName" class="form-label">Tên</label>
+        <input type="text" id="lastName" name="lastName" class="form-control" [(ngModel)]="customer.full_name.last_name" required />
+      </div>
+  
+      <div class="col-12">
+        <label for="street" class="form-label">Địa chỉ</label>
+        <input type="text" id="street" name="street" class="form-control" [(ngModel)]="customer.address.street" required />
+      </div>
+  
+      <div class="col-md-4">
+        <label for="city" class="form-label">Thành phố</label>
+        <input type="text" id="city" name="city" class="form-control" [(ngModel)]="customer.address.city" required />
+      </div>
+  
+      <div class="col-md-4">
+        <label for="state" class="form-label">Tỉnh/Thành</label>
+        <input type="text" id="state" name="state" class="form-control" [(ngModel)]="customer.address.state" required />
+      </div>
+  
+      <div class="col-md-4">
+        <label for="zip" class="form-label">Mã bưu điện</label>
+        <input type="text" id="zip" name="zip" class="form-control" [(ngModel)]="customer.address.zip_code" required />
+      </div>
+  
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-control" [(ngModel)]="customer.email" required />
+      </div>
+  
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Số điện thoại</label>
+        <input type="text" id="phone" name="phone" class="form-control" [(ngModel)]="customer.phone" required />
+      </div>
+  
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary mt-3 px-5">Gửi</button>
+      </div>
+    </form>
+  </div>
+  

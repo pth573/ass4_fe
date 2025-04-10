@@ -1,0 +1,22 @@
+<div class="container mt-4">
+    <h3>🎁 Gợi ý sản phẩm cho bạn</h3>
+  
+    <div *ngIf="recommendations.length === 0" class="text-muted">Không có gợi ý nào.</div>
+  
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col" *ngFor="let product of recommendations">
+        <div class="card h-100 shadow-sm">
+          <img src="https://photo.znews.vn/w660/Uploaded/mdf_eioxrd/2021_07_06/2.jpg" class="card-img-top" alt="Product Image">
+  
+          <div class="card-body">
+            <h5 class="card-title">{{ product.product_name }}</h5>
+            <p class="card-text">
+              💵 Giá: {{ product.price | currency:'VND':'symbol':'1.0' }} <br>
+              🔁 Độ tương đồng: {{ product.similarity_score }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

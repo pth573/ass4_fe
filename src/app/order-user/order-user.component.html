@@ -1,0 +1,48 @@
+<div class="container mt-4">
+    <h2>📦 Danh sách đơn hàng của bạn</h2>
+  
+    <div *ngIf="orders.length > 0; else noOrders">
+      <div *ngFor="let order of orders" class="card mb-3 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Đơn hàng #{{ order.id }} - 
+            <span class="badge bg-secondary">{{ order.status }}</span>
+          </h5>
+          <p class="card-text">Ngày đặt: {{ order.order_date | date: 'dd/MM/yyyy HH:mm' }}</p>
+          <p class="card-text">Tổng tiền: {{ order.total_price | number: '1.0-0' }} VND</p>
+  
+          <table class="table table-sm table-bordered mt-2">
+            <thead class="table-light">
+              <tr>
+                <th>#</th>
+                <th>Loại</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Đánh giá</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of order.items; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ item.category }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.price | number: '1.0-0' }} VND</td>
+                <td>{{ item.quantity }}</td>
+                <td>
+                  <button class="btn btn-sm btn-primary" (click)="goToReview(order.customer_id, item.category, item.product_id)">
+                    Đánh giá
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noOrders>
+      <p>Chưa có đơn hàng nào được đặt.</p>
+    </ng-template>
+  </div>
+  

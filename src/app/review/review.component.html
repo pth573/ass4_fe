@@ -1,0 +1,28 @@
+<div class="container mt-4">
+    <h3>📝 Đánh giá sản phẩm</h3>
+  
+    <form (ngSubmit)="submitReview()" #reviewForm="ngForm">
+      <div class="mb-3">
+        <label class="form-label">Đánh giá (1 đến 5)</label>
+        <select class="form-select" [(ngModel)]="rating" name="rating" required>
+          <option [value]="5">⭐️⭐️⭐️⭐️⭐️</option>
+          <option [value]="4">⭐️⭐️⭐️⭐️</option>
+          <option [value]="3">⭐️⭐️⭐️</option>
+          <option [value]="2">⭐️⭐️</option>
+          <option [value]="1">⭐️</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Bình luận</label>
+        <textarea class="form-control" rows="4" [(ngModel)]="comment" name="comment" required></textarea>
+      </div>
+  
+      <button type="submit" class="btn btn-success">Gửi đánh giá</button>
+    </form>
+  
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+  </div>
+  
